@@ -6,7 +6,7 @@ script.registerScript({
 });
 script.addEventListener("DataPacketSendEvent", function(event){
   if(event.isCancelled()) return;
-  let packet = event.getPacket();
+  let packet = event.getPacket().clone();
   let player = event.getPlayer();
   let TextPacket = Java.type("cn.nukkit.network.protocol.TextPacket");
   if(!packet instanceof TextPacket) return;
