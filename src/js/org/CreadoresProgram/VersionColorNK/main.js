@@ -11,25 +11,26 @@ script.addEventListener("DataPacketSendEvent", function(event){
   let TextPacket = Java.type("cn.nukkit.network.protocol.TextPacket");
   if(!packet instanceof TextPacket) return;
   if(player.protocol > 422) return;
+  var message = packet.message || packet.source;
   switch(true){
-    case packet.message.indexOf(TextFormat.MINECOIN_GOLD.toString()) != -1:
-    case packet.message.indexOf(TextFormat.MATERIAL_QUARTZ.toString()) != -1:
-    case packet.message.indexOf(TextFormat.MATERIAL_IRON.toString()) != -1:
-    case packet.message.indexOf(TextFormat.MATERIAL_NETHERITE.toString()) != -1:
-    case packet.message.indexOf(TextFormat.MATERIAL_REDSTONE.toString()) != -1:
-    case packet.message.indexOf(TextFormat.MATERIAL_COPPER.toString()) != -1:
-    case packet.message.indexOf(TextFormat.MATERIAL_GOLD.toString()) != -1:
-    case packet.message.indexOf(TextFormat.MATERIAL_EMERALD.toString()) != -1:
-    case packet.message.indexOf(TextFormat.MATERIAL_DIAMOND.toString()) != -1:
-    case packet.message.indexOf(TextFormat.MATERIAL_LAPIS.toString()) != -1:
-    case packet.message.indexOf(TextFormat.MATERIAL_AMETHYST.toString()) != -1:
+    case message.indexOf(TextFormat.MINECOIN_GOLD.toString()) != -1:
+    case message.indexOf(TextFormat.MATERIAL_QUARTZ.toString()) != -1:
+    case message.indexOf(TextFormat.MATERIAL_IRON.toString()) != -1:
+    case message.indexOf(TextFormat.MATERIAL_NETHERITE.toString()) != -1:
+    case message.indexOf(TextFormat.MATERIAL_REDSTONE.toString()) != -1:
+    case message.indexOf(TextFormat.MATERIAL_COPPER.toString()) != -1:
+    case message.indexOf(TextFormat.MATERIAL_GOLD.toString()) != -1:
+    case message.indexOf(TextFormat.MATERIAL_EMERALD.toString()) != -1:
+    case message.indexOf(TextFormat.MATERIAL_DIAMOND.toString()) != -1:
+    case message.indexOf(TextFormat.MATERIAL_LAPIS.toString()) != -1:
+    case message.indexOf(TextFormat.MATERIAL_AMETHYST.toString()) != -1:
       break;
     default:
       return;
   }
   event.setCancelled(true);
   let TextFormat = Java.type("cn.nukkit.utils.TextFormat");
-  packet.message = packet.message
+  packet.message = message
     .replaceAll(TextFormat.MINECOIN_GOLD.toString(), TextFormat.YELLOW.toString())
     .replaceAll(TextFormat.MATERIAL_QUARTZ.toString(), TextFormat.WHITE.toString())
     .replaceAll(TextFormat.MATERIAL_IRON.toString(), TextFormat.WHITE.toString())
