@@ -6,10 +6,10 @@ script.registerScript({
 });
 script.addEventListener("DataPacketSendEvent", function(event){
   if(event.isCancelled()) return;
-  let packet = event.getPacket().clone();
+  let packet = event.getPacket();
   let player = event.getPlayer();
   let TextPacket = Java.type("cn.nukkit.network.protocol.TextPacket");
-  if(!packet instanceof TextPacket) return;
+  if(!(packet instanceof TextPacket)) return;
   if(player.protocol > 422) return;
   let message = packet.message || packet.source;
   let TextFormat = Java.type("cn.nukkit.utils.TextFormat");
@@ -42,5 +42,6 @@ script.addEventListener("DataPacketSendEvent", function(event){
     .replaceAll(TextFormat.MATERIAL_DIAMOND.toString(), TextFormat.AQUA.toString())
     .replaceAll(TextFormat.MATERIAL_LAPIS.toString(), TextFormat.BLUE.toString())
     .replaceAll(TextFormat.MATERIAL_AMETHYST.toString(), TextFormat.LIGHT_PURPLE.toString());
+  packet.source = packet.message;
   player.dataPacket(packet);
 });
