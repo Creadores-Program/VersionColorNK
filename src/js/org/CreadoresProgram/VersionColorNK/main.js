@@ -11,7 +11,8 @@ script.addEventListener("DataPacketSendEvent", function(event){
   let TextPacket = Java.type("cn.nukkit.network.protocol.TextPacket");
   if(!packet instanceof TextPacket) return;
   if(player.protocol > 422) return;
-  var message = packet.message || packet.source;
+  let message = packet.message || packet.source;
+  let TextFormat = Java.type("cn.nukkit.utils.TextFormat");
   switch(true){
     case message.indexOf(TextFormat.MINECOIN_GOLD.toString()) != -1:
     case message.indexOf(TextFormat.MATERIAL_QUARTZ.toString()) != -1:
@@ -29,7 +30,6 @@ script.addEventListener("DataPacketSendEvent", function(event){
       return;
   }
   event.setCancelled(true);
-  let TextFormat = Java.type("cn.nukkit.utils.TextFormat");
   packet.message = message
     .replaceAll(TextFormat.MINECOIN_GOLD.toString(), TextFormat.YELLOW.toString())
     .replaceAll(TextFormat.MATERIAL_QUARTZ.toString(), TextFormat.WHITE.toString())
