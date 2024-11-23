@@ -1,9 +1,3 @@
-script.registerScript({
-  name: "VersionColorNK",
-  version: "1.0",
-  description: "In old versions change the modern colors to the old Minecraft colors in chat",
-  author: "Creadores Program"
-});
 script.addEventListener("DataPacketSendEvent", function(event){
   if(event.isCancelled()) return;
   let packet = event.getPacket();
@@ -14,7 +8,6 @@ script.addEventListener("DataPacketSendEvent", function(event){
   let message = packet.message || packet.source;
   let TextFormat = Java.type("cn.nukkit.utils.TextFormat");
   switch(true){
-    case message.indexOf(TextFormat.MINECOIN_GOLD.toString()) != -1:
     case message.indexOf(TextFormat.MATERIAL_QUARTZ.toString()) != -1:
     case message.indexOf(TextFormat.MATERIAL_IRON.toString()) != -1:
     case message.indexOf(TextFormat.MATERIAL_NETHERITE.toString()) != -1:
@@ -31,7 +24,6 @@ script.addEventListener("DataPacketSendEvent", function(event){
   }
   event.setCancelled(true);
   packet.message = message
-    .replaceAll(TextFormat.MINECOIN_GOLD.toString(), TextFormat.YELLOW.toString())
     .replaceAll(TextFormat.MATERIAL_QUARTZ.toString(), TextFormat.WHITE.toString())
     .replaceAll(TextFormat.MATERIAL_IRON.toString(), TextFormat.WHITE.toString())
     .replaceAll(TextFormat.MATERIAL_NETHERITE.toString(), TextFormat.GRAY.toString())

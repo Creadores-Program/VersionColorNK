@@ -1,0 +1,7 @@
+{
+    "name": "VersionColorNK",
+    "version": "1.0.0",
+    "author": "Creadores Program",
+    "description": "In old versions change the modern colors to the old Minecraft colors in chat",
+    "main": "org/CreadoresProgram/VersionColorNK/main.js"
+}
