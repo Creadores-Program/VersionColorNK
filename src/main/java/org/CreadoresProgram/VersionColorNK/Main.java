@@ -49,7 +49,7 @@ public class Main extends PluginBase implements Listener {
         if(packet.message != null && packet.message.equals(message)){
             return;
         }
-        if(packet.source != null && package.message == null){
+        if(packet.source != null && packet.message == null){
             packet.source = message;
         }
         if(packet.message != null){
