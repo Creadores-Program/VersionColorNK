@@ -14,17 +14,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <repositories>
-        <repository>
-            <id>repo-lanink-cn</id>
-            <url>https://repo.lanink.cn/repository/maven-public/</url>
-        </repository>
+        	<repositories>
+		        <repository>
+		            <id>jitpack.io</id>
+		            <url>https://jitpack.io</url>
+		        </repository>
+	        </repositories>
     </repositories>
 
     <dependencies>
         <dependency>
-            <groupId>cn.nukkit</groupId>
-            <artifactId>Nukkit</artifactId>
-            <version>MOT-SNAPSHOT</version>
+            <groupId>com.github.MemoriesOfTime</groupId>
+            <artifactId>Nukkit-MOT</artifactId>
+            <version>2fb711bf37ddb8dcd3b7c8fa5cf0a8ca60bcdd08</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
