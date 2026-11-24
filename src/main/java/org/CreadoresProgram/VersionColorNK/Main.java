@@ -5,7 +5,7 @@ import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.server.DataPacketSendEvent;
-import cn.nukkit.network.DataPacket;
+import cn.nukkit.network.protocol.DataPacket;
 import cn.nukkit.network.protocol.SetTitlePacket;
 import cn.nukkit.network.protocol.TextPacket;
 import cn.nukkit.plugin.PluginBase;
